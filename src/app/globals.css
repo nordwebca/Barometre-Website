@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-highlight: #4477CE;
+  --color-primary: #22408C;
+  --color-bg-dark: #121F48;
+  --color-bg-darker: #192030;
+  --color-muted: #5B628F;
+
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply bg-bg-dark text-white font-body min-h-screen antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  a {
+    @apply text-highlight transition-colors duration-300 hover:text-white no-underline;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-br from-highlight to-[#a8c5ff] bg-clip-text text-transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all duration-300 border-none outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-br from-highlight to-primary text-white shadow-md shadow-highlight/40;
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-lg shadow-highlight/60 bg-gradient-to-br from-[#5c8df5] to-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-white border-2 border-muted;
+  }
+
+  .btn-secondary:hover {
+    @apply border-highlight text-highlight -translate-y-0.5;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-bg-darker/60 backdrop-blur-md border-b border-muted/20;
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-br from-bg-darker/90 to-bg-dark/95 border border-muted/20 rounded-3xl p-8 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply -translate-y-1.5 shadow-2xl;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-highlight mb-8 border border-highlight/30;
+  }
+
+  .glow-orb {
+    @apply absolute rounded-full blur-[80px] -z-10 opacity-50;
+  }
+
+  .phone-screen {
+    @apply w-full h-full rounded-[2.5rem] p-6 flex flex-col gap-4 relative overflow-hidden shadow-2xl;
+  }
+}
