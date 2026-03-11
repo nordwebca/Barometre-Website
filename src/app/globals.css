@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-highlight: #4477CE;
-  --color-primary: #22408C;
-  --color-bg-dark: #121F48;
-  --color-bg-darker: #192030;
-  --color-muted: #5B628F;
+  --color-highlight: #D946EF; /* Fuchsia */
+  --color-primary: #8B5CF6; /* Violet */
+  --color-bg-dark: #0F091A; /* Very dark deep purple */
+  --color-bg-darker: #170F28; /* Slightly lighter deep purple */
+  --color-muted: #6B5E87;
 
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Poppins', 'Inter', system-ui, sans-serif;
@@ -36,27 +36,27 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-br from-highlight to-[#a8c5ff] bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-highlight to-[#FDA4AF] bg-clip-text text-transparent;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all duration-300 border-none outline-none;
+    @apply inline-flex items-center justify-center rounded-full font-semibold tracking-wide cursor-pointer transition-all duration-300 border-none outline-none active:scale-95;
   }
 
   .btn-primary {
-    @apply bg-gradient-to-br from-highlight to-primary text-white shadow-md shadow-highlight/40;
+    @apply bg-gradient-to-r from-highlight via-[#C084FC] to-primary bg-[length:200%_auto] text-white shadow-[0_8px_20px_-6px_rgba(217,70,239,0.5)];
   }
 
   .btn-primary:hover {
-    @apply -translate-y-0.5 shadow-lg shadow-highlight/60 bg-gradient-to-br from-[#5c8df5] to-primary;
+    @apply -translate-y-1 shadow-[0_15px_30px_-6px_rgba(217,70,239,0.7)] bg-[position:right_center];
   }
 
   .btn-secondary {
-    @apply bg-transparent text-white border-2 border-muted;
+    @apply bg-transparent text-white/90 border-2 border-white/20 backdrop-blur-sm shadow-sm relative overflow-hidden;
   }
 
   .btn-secondary:hover {
-    @apply border-highlight text-highlight -translate-y-0.5;
+    @apply -translate-y-1 text-white border-highlight/80 bg-highlight/15 shadow-[0_8px_20px_-6px_rgba(217,70,239,0.3)];
   }
 
   /* Glassmorphism */
