@@ -52,11 +52,11 @@
   }
 
   .btn-secondary {
-    @apply bg-transparent text-white/90 border-2 border-white/20 backdrop-blur-sm shadow-sm relative overflow-hidden;
+    @apply bg-gradient-to-r from-highlight via-[#FDA4AF] to-primary text-white font-bold border-none shadow-[0_8px_32px_-6px_rgba(217,70,239,0.5)] relative overflow-hidden transition-all duration-300;
   }
 
   .btn-secondary:hover {
-    @apply -translate-y-1 text-white border-highlight/80 bg-highlight/15 shadow-[0_8px_20px_-6px_rgba(217,70,239,0.3)];
+    @apply -translate-y-1 scale-105 shadow-[0_15px_40px_-6px_rgba(217,70,239,0.7)] brightness-110;
   }
 
   /* Glassmorphism */
