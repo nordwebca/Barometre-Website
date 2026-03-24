@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { MapPin, Users, Heart, Zap, ChevronRight, Menu, X, Building2, CalendarDays, Star, Smartphone, UserPlus, MessageCircle, Quote, ShieldCheck, Lock, EyeOff, Activity, Clock, Plus, Send } from 'lucide-react';
 import type { Dictionary } from '@/dictionaries/fr';
+import Link from 'next/link';
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), { ssr: false, loading: () => <div className="w-full h-full flex items-center justify-center bg-bg-darker"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-highlight"></div></div> });
 
@@ -48,24 +49,24 @@ export default function HomePage({ dict, lang }: { dict: Dictionary, lang: strin
           </div>
 
           <div className="hidden md:flex items-center gap-10">
-            <a href="#concept" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.home}</a>
-            <a href="#how-it-works" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.howItWorks}</a>
-            <a href="#features" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.features}</a>
-            <a href="#bars" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.locations}</a>
-            <a href="#security" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.security}</a>
-            <a href="#faq" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.faq}</a>
+            <Link href="#concept" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.home}</Link>
+            <Link href="#how-it-works" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.howItWorks}</Link>
+            <Link href="#features" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.features}</Link>
+            <Link href="#bars" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.locations}</Link>
+            <Link href="#security" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.security}</Link>
+            <Link href="#faq" className="font-semibold text-white/90 hover:text-highlight transition-colors">{dict.nav.faq}</Link>
             <div className="flex items-center gap-4">
-              <a href={languageToggleUrl} className="font-extrabold text-sm text-highlight hover:text-white transition-colors bg-highlight/10 p-2 rounded-full border border-highlight/30">
+              <Link href={languageToggleUrl} className="font-extrabold text-sm text-highlight hover:text-white transition-colors bg-highlight/10 p-2 rounded-full border border-highlight/30">
                 {languageToggleText}
-              </a>
+              </Link>
               <button className="btn btn-primary px-6 py-2" onClick={() => setIsJoinModalOpen(true)}>{dict.nav.join}</button>
             </div>
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            <a href={languageToggleUrl} className="font-extrabold text-sm text-highlight hover:text-white transition-colors bg-highlight/10 p-2 rounded-full border border-highlight/30">
+            <Link href={languageToggleUrl} className="font-extrabold text-sm text-highlight hover:text-white transition-colors bg-highlight/10 p-2 rounded-full border border-highlight/30">
               {languageToggleText}
-            </a>
+            </Link>
             <div className="cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </div>
@@ -74,12 +75,12 @@ export default function HomePage({ dict, lang }: { dict: Dictionary, lang: strin
 
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 w-full p-8 flex flex-col gap-6 glass border-t border-[#5B628F]/20 md:hidden">
-             <a href="#concept" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.home}</a>
-            <a href="#how-it-works" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.howItWorks}</a>
-            <a href="#features" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.features}</a>
-            <a href="#bars" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.locations}</a>
-            <a href="#security" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.security}</a>
-            <a href="#faq" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.faq}</a>
+             <Link href="#concept" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.home}</Link>
+            <Link href="#how-it-works" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.howItWorks}</Link>
+            <Link href="#features" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.features}</Link>
+            <Link href="#bars" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.locations}</Link>
+            <Link href="#security" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.security}</Link>
+            <Link href="#faq" className="font-semibold text-lg" onClick={() => setIsMobileMenuOpen(false)}>{dict.nav.faq}</Link>
             <button className="btn btn-primary w-full py-3" onClick={() => setIsJoinModalOpen(true)}>{dict.nav.join}</button>
           </div>
         )}

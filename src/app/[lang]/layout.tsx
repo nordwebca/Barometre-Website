@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-export default async function RootLayout({
+export default async function LangLayout({
   children,
   params,
 }: Readonly<{
@@ -20,13 +20,7 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
-  return (
-    <html lang={lang}>
-      <body className="antialiased">
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
 
 export const dynamicParams = false;
