@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-highlight: #D946EF; /* Fuchsia */
+  --color-primary: #8B5CF6; /* Violet */
+  --color-bg-dark: #0F091A; /* Very dark deep purple */
+  --color-bg-darker: #170F28; /* Slightly lighter deep purple */
+  --color-muted: #6B5E87;
+
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply bg-bg-dark text-white font-body min-h-screen antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  a {
+    @apply text-highlight transition-colors duration-300 hover:text-white no-underline;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-br from-highlight to-[#FDA4AF] bg-clip-text text-transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full font-semibold tracking-wide cursor-pointer transition-all duration-300 border-none outline-none active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-highlight via-[#C084FC] to-primary bg-[length:200%_auto] text-white shadow-[0_8px_20px_-6px_rgba(217,70,239,0.5)];
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-1 shadow-[0_15px_30px_-6px_rgba(217,70,239,0.7)] bg-[position:right_center];
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-highlight via-[#FDA4AF] to-primary text-white font-bold border-none shadow-[0_8px_32px_-6px_rgba(217,70,239,0.5)] relative overflow-hidden transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply -translate-y-1 scale-105 shadow-[0_15px_40px_-6px_rgba(217,70,239,0.7)] brightness-110;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-bg-darker/60 backdrop-blur-md border-b border-muted/20;
+  }
+
+  .glass-card {
+    @apply bg-gradient-to-br from-bg-darker/90 to-bg-dark/95 border border-muted/20 rounded-3xl p-8 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply -translate-y-1.5 shadow-2xl;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-highlight mb-8 border border-highlight/30;
+  }
+
+  .glow-orb {
+    @apply absolute rounded-full blur-[80px] -z-10 opacity-50;
+  }
+
+  .phone-screen {
+    @apply w-full h-full rounded-[2.5rem] p-6 flex flex-col gap-4 relative overflow-hidden shadow-2xl;
+  }
+}
